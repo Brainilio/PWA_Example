@@ -1,69 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="materialize/css/materialize.min.css"
+      media="screen,projection"
+    />
+    <!-- Link manifest.json -->
+    <link rel="manifest" href="manifest.json" />
 
-<head>
-  <meta charset="UTF-8" />
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
-  <!-- Link manifest.json -->
-  <link rel="manifest" href="manifest.json" />
+    <!-- App name -->
+    <meta name="apple-mobile-web-app-title" content="School Projects" />
+    <meta name="application-name" content="School Projects" />
 
-  <!-- App name -->
-  <meta name="apple-mobile-web-app-title" content="School Projects" />
-  <meta name="application-name" content="School Projects" />
+    <!-- App Capable -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
-  <!-- App Capable -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Link all favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="194x194"
+      href="/icons/favicon-194x194.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/icons/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#e63551" />
 
-  <!-- Link all favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="194x194" href="/icons/favicon-194x194.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#e63551" />
- 
-  <meta name="msapplication-TileColor" content="#da532c" />
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
-  <meta name="theme-color" content="#e63551" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+    <meta name="theme-color" content="#e63551" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  
-  <title>School projecten</title>
-</head>
+    <title>School projecten</title>
+  </head>
 
-<body>
-  <header>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Projecten</a>
-        <ul class="right hide-on-med-and-down">
-          <a onclick="location.reload()" class="waves-effect waves-light btn">Refresh</a>
-        </ul>
-      </div>
-    </nav>
-  </header>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">Projecten</a>
+          <ul class="right hide-on-med-and-down">
+            <a onclick="location.reload()" class="waves-effect waves-light btn"
+              >Refresh</a
+            >
+          </ul>
+        </div>
+      </nav>
+    </header>
 
-  <!-- Dynamic UI that'll change upon going offline -->
-  <div id="tag-contents" class="section container"></div>
-  <div id="connection-status" class="section container"></div>
+    <!-- Dynamic UI that'll change upon going offline -->
+    <div id="tag-contents" class="section container"></div>
+    <div id="connection-status" class="section container"></div>
 
-  <div class="container">
-    <main class="container">
-      <div id="content" class="section container">
-        <h1 id="loadingText">Loading projects...</h1>
-      </div>
-    </main>
-  </div>
+    <div class="container">
+      <main class="container">
+        <div id="content" class="section container">
+          <h1 id="loadingText">Loading projects...</h1>
+        </div>
+      </main>
+    </div>
 
-  <!--JavaScript at end of body for optimized loading-->
+    <!--JavaScript at end of body for optimized loading-->
 
-  <script id="project-card" type="text/template">
+    <!-- Project card with all cards in it -->
+    <script id="project-card" type="text/template">
 
       <h5 id="title">{{title}}</h5>
       <p id="about">{{description}}</p>
@@ -73,24 +106,28 @@
       <br>
     </script>
 
-  <script id="tag-chips" type="text/template">
+    <!-- Tag chips for all tags in there -->
+    <script id="tag-chips" type="text/template">
       <div id="inner-tag" class="chip">
         {{name}}
       </div>
     </script>
 
-  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <!-- Needed script libraries -->
+    <script
+      type="text/javascript"
+      src="materialize/js/materialize.min.js"
+    ></script>
+    <script src="resources/es6-promise/es6-promise.js"></script>
+    <script src="resources/fetch/fetch.js"></script>
+    <script src="resources/localforage/localforage.min.js"></script>
+    <script src="resources/localforage/localforage-getitems.js"></script>
+    <script src="resources/localforage/localforage-setitems.js"></script>
+    <script src="resources/systemjs/system.js"></script>
 
-  <script src="resources/es6-promise/es6-promise.js"></script>
-  <script src="resources/fetch/fetch.js"></script>
-  <script src="resources/localforage/localforage.min.js"></script>
-  <script src="resources/localforage/localforage-getitems.js"></script>
-  <script src="resources/localforage/localforage-setitems.js"></script>
-  <script src="resources/systemjs/system.js"></script>
-
-  <script>
-    System.import("./js/app.js");
-  </script>
-</body>
-
+    <!-- Import polyfill system -->
+    <script>
+      System.import("./js/app.js");
+    </script>
+  </body>
 </html>

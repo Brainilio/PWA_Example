@@ -1,4 +1,5 @@
 define([], function() {
+  // Generate a div to append data to it
   function generateProjectDiv(project) {
     let template = document.querySelector("#project-card").innerHTML;
     template = template.replace("{{title}}", project.title);
@@ -6,6 +7,7 @@ define([], function() {
     return template;
   }
 
+  // Append data to div and allow function to create div with data in it, output it in the html
   function appendProjects(projects) {
     document.getElementById("loadingText").innerHTML = "";
     let output = "";
@@ -16,6 +18,7 @@ define([], function() {
     document.querySelector("#content").insertAdjacentHTML("beforeend", output);
   }
 
+  // Generate a tag div
   function appendTags(tags) {
     let output = "";
     tags.map(function(tag) {
@@ -26,6 +29,7 @@ define([], function() {
       .insertAdjacentHTML("beforeend", output);
   }
 
+  // Add data to generated tag div
   function generateTagChips(tag) {
     let template = document.querySelector("#tag-chips").innerHTML;
     template = template.replace("{{name}}", tag);

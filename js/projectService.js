@@ -5,6 +5,8 @@ define(["./template.js", "./clientStorage.js"], function(
   let apiUrlPath = "https://cmgt.hr.nl:8000/api/projects/";
   let apiTagsUrl = "https://cmgt.hr.nl:8000/api/projects/tags/";
 
+
+  // Here is where you will load all the data from the fetch promises to the html that will be called in app.js
   function loadMoreRequest() {
     fetchPromise()
       .then(function(status) {
@@ -17,6 +19,8 @@ define(["./template.js", "./clientStorage.js"], function(
       });
   }
 
+  // Fetch tag data, same as the project data, but if site's offline, you won't show the data at all and give a warning that you should connect 
+  // to the internet AVOID GLOBAL VARIABLES
   function fetchTags() {
     if (navigator.onLine) {
       return new Promise(function(resolve, reject) {
@@ -43,6 +47,7 @@ define(["./template.js", "./clientStorage.js"], function(
     }
   }
 
+  // Fetch data using promise, add projects to the clientstorage, if its offline it shows the catch functions
   function fetchPromise() {
     return new Promise(function(resolve, reject) {
       fetch(apiUrlPath)
@@ -62,6 +67,7 @@ define(["./template.js", "./clientStorage.js"], function(
     });
   }
 
+  // Load data from the clientstorage, from the clientstorage you want to append this data to the div to display
   function loadMoreFromClientStorage() {
     clientStorage.getProjects().then(function(projects) {
       template.appendProjects(projects);
