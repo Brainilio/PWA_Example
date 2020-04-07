@@ -1,10 +1,10 @@
-var projectService = require('./projectService.js'); 
-var swRegister = require('./swRegister.js');
+var projectService = require("./projectService.js");
+var swRegister = require("./swRegister.js");
 
-window.pageEvents = { 
-    loadMore: function () { 
-        projectService.loadMoreFromClientStorage();
-    }
-}
+window.pageEvents = {
+  loadMore: function() {
+    projectService.loadMoreFromClientStorage();
+  }
+};
 
 projectService.loadMoreRequest();

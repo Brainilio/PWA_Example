@@ -24,7 +24,9 @@
         <div class="nav-wrapper">
           <a href="#!" class="brand-logo">Projecten</a>
           <ul class="right hide-on-med-and-down">
-            <a onclick="location.reload()" class="waves-effect waves-light btn">Refresh</a>
+            <a onclick="location.reload()" class="waves-effect waves-light btn"
+              >Refresh</a
+            >
           </ul>
         </div>
       </nav>
@@ -36,12 +38,9 @@
 
     <div class="container">
       <main class="container">
-        
-
         <div id="content" class="section container">
           <h1 id="loadingText">Loading projects...</h1>
         </div>
-
       </main>
     </div>
 
@@ -49,19 +48,18 @@
 
     <script id="project-card" type="text/template">
 
-          <h5 id="title">{{title}}</h5>
-          <p id="about">{{description}}</p>
+      <h5 id="title">{{title}}</h5>
+      <p id="about">{{description}}</p>
 
-          <br>
-          <div class="divider"></div>
-          <br>
+      <br>
+      <div class="divider"></div>
+      <br>
     </script>
 
-    <script id="tag-chips" type="text/template"> 
+    <script id="tag-chips" type="text/template">
       <div id="inner-tag" class="chip">
         {{name}}
       </div>
-            
     </script>
 
     <script
@@ -75,7 +73,7 @@
     <script src="resources/localforage/localforage-getitems.js"></script>
     <script src="resources/localforage/localforage-setitems.js"></script>
     <script src="resources/systemjs/system.js"></script>
- 
+
     <script>
       System.import("./js/app.js");
     </script>
