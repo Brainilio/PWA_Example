@@ -85,18 +85,6 @@ self.addEventListener('fetch', function(event){
     event.respondWith(cacheFirstStrategy(event.request))
 
 }
-//   if(requestPath == tagPath || fileName == 'sw.js') { 
-//         event.respondWith(fetch(event.request));
-//         console.log("I'm online, fetching tags with me.")
-//   }
-//   else if(requestPath == projectsPath){ 
-//         event.respondWith(networkFirstStrategy(event.request))
-//         console.log("Network first.")
-//   }
-//   else { 
-//         event.respondWith(cacheFirstStrategy(event.request))
-//         console.log("Cache first")
-//   }
 
 });
 
