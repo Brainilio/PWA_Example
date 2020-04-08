@@ -98,8 +98,18 @@
     <!-- Project card with all cards in it -->
     <script id="project-card" type="text/template">
 
-      <h5 id="title">{{title}}</h5>
-      <p id="about">{{description}}</p>
+      <div class="card">
+        <div class="card-image">
+          <img src={{image}}>
+          <span class="card-title" id="title">{{title}}</span>
+        </div>
+        <div class="card-content">
+          <p id="about">{{description}}</p>
+        </div>
+      </div>
+
+      <!-- <h5 id="title">{{title}}</h5>
+      <p id="about">{{description}}</p> -->
 
       <br>
       <div class="divider"></div>

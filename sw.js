@@ -40,7 +40,7 @@ self.addEventListener("install", function(event) {
   );
 });
 
-// Activate
+// Activate and clean up
 self.addEventListener("activate", function(event) {
   console.log("From SW: Activate state", event);
   self.clients.claim();
@@ -107,6 +107,8 @@ function fetchNetworkandCache(request) {
   });
 }
 
+
+// Hier zouden ook images moeten staan.
 function getCacheName(request) {
   let requestUrl = new URL(request.url);
   let requestPath = requestUrl.pathname;

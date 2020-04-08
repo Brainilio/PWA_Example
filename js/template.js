@@ -2,6 +2,7 @@ define([], function() {
   // Generate a div to append data to it
   function generateProjectDiv(project) {
     let template = document.querySelector("#project-card").innerHTML;
+    template = template.replace("{{image}}", 'https://cmgt.hr.nl:8000/' + project.headerImage)
     template = template.replace("{{title}}", project.title);
     template = template.replace("{{description}}", project.description);
     return template;
